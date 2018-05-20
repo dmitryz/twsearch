@@ -14,7 +14,7 @@ RSpec.describe Api::TweetsController, vcr: true do
         subject { get(:index, format: :json) && response.body }
 
         it do
-          is_expected.to eq "[]"
+          is_expected.to eq '[]'
         end
       end
     end

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# TweatsService
 class TweatsService
   def search(keyword)
     return [] if keyword.nil? || keyword.empty?

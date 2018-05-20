@@ -1,34 +1,31 @@
-require "rails_helper"
+# frozen_string_literal: true
 
-RSpec.describe Api::TweetsController do
-  describe "Search" do
+require 'rails_helper'
 
-    context "when it called w/o params" do
-      describe "response status" do
+RSpec.describe Api::TweetsController, vcr: true do
+  describe 'Search' do
+    context 'when it called w/o params' do
+      describe 'response status' do
         subject { get(:index, format: :json) && response.status }
         it { is_expected.to eq 200 }
       end
 
-      describe "response body" do
+      describe 'response body' do
         subject { get(:index, format: :json) && response.body }
 
         it do
-          puts "YAAAA"
-          puts subject
-          is_expected.to eq "TTT"
+          is_expected.to eq "[]"
         end
       end
     end
 
-    context "when it called with search query" do
-      describe "response body" do
-        subject { get(:index, params: { query: 'test' }, format: :json) && response.body }
+    context 'when it called with search query' do
+      describe 'response body' do
+        subject { get(:index, params: { query: 'wrapper' }, format: :json) && JSON.parse(response.body) }
 
         it do
-          puts "ZZZZ"
-          puts subject
-
-          is_expected.to eq "TTT"
+          messages = subject.map { |data| data['text'] }
+          expect(messages).to include(/wrapper/)
         end
       end
     end

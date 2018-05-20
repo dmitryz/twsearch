@@ -1,0 +1,6 @@
+%center
+  Search
+  = form_tag(api_tweets_path, method: :get, id: :api_tweets_form) do
+    = text_field_tag :query
+    = submit_tag "Search", id: :search
+  #results

@@ -9,5 +9,5 @@ Update .env with your twitter credententials
 `rails s`
 http://localhost:3000
 
-# Tests
-`rspec`
+# Tests, run
+`make`

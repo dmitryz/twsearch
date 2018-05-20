@@ -1,16 +1,16 @@
-### Twitter search application
+# Twitter search application
 
-# Configuration
+## Configuration
 `cp .env.example .env`
 
 Update .env with your twitter credententials
 
-# Run
+### Run
 `bundle`
 
 `rails s`
 
 http://localhost:3000
 
-# Run, tests
+### Run, tests
 `make`
